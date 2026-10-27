@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="MateFix Servicio Técnico. Consultá por reparación de celulares, cambio de módulos y diagnóstico técnico. Atención por WhatsApp.">
+  <title>MateFix | Servicio Técnico</title>
+
+  <style>
+    :root {
+      --blue: #1685ff;
+      --blue-light: #54b4ff;
+      --dark: #07111f;
+      --card: #101e30;
+      --white: #f4f8ff;
+      --muted: #a5b4c8;
+      --border: rgba(255,255,255,.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVEGACIÓN */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,17,31,.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.8px;
+    }
+
+    .brand span {
+      color: var(--blue-light);
+    }
+
+    .logo {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(145deg, #269aff, #0754d9);
+      box-shadow: 0 0 22px rgba(22,133,255,.3);
+      font-size: 22px;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      border-radius: 9px;
+      background: var(--blue);
+      color: white !important;
+      font-weight: bold;
+    }
+
+    /* BOTONES */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 21px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(120deg, #1685ff, #0860dc);
+      box-shadow: 0 8px 28px rgba(22,133,255,.23);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 10px 34px rgba(22,133,255,.4);
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      background: rgba(255,255,255,.035);
+      color: white;
+    }
+
+    /* PORTADA */
+
+    .hero {
+      position: relative;
+      padding: 105px 0 95px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 30%, rgba(0,105,255,.17), transparent 42%),
+        radial-gradient(ellipse at 15% 90%, rgba(0,60,150,.12), transparent 40%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(65,158,255,.3);
+      border-radius: 30px;
+      color: #83c5ff;
+      background: rgba(22,133,255,.08);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #42e8a4;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #42e8a4;
+    }
+
+    h1 {
+      margin: 25px 0 20px;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.06;
+      letter-spacing: -2.8px;
+    }
+
+    h1 span {
+      color: var(--blue-light);
+    }
+
+    .hero p {
+      max-width: 530px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-note {
+      margin-top: 25px;
+      color: #91a5bc;
+      font-size: 12px;
+    }
+
+    /* ILUSTRACIÓN DEL CELULAR */
+
+    .device-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      background: rgba(0,112,255,.23);
+      filter: blur(65px);
+      border-radius: 50%;
+    }
+
+    .phone {
+      width: 225px;
+      height: 325px;
+      padding: 11px;
+      border-radius: 32px;
+      border: 2px solid #46617f;
+      background: linear-gradient(140deg, #273d57, #0b1726 50%);
+      box-shadow: 0 35px 70px rgba(0,0,0,.45),
+                  0 0 40px rgba(22,133,255,.15);
+      transform: rotate(-5deg);
+      animation: float 5s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 23px;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(22,133,255,.26), transparent 48%),
+        #07111f;
+      border: 1px solid #293e57;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .phone-camera {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 7px;
+      background: #172638;
+      border-radius: 10px;
+    }
+
+    .phone-symbol {
+      width: 95px;
+      height: 95px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      color: white;
+      background: linear-gradient(140deg, #269aff, #064bbd);
+      box-shadow: 0 0 40px rgba(22,133,255,.4);
+    }
+
+    .phone-screen strong {
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .phone-screen small {
+      color: #8db5df;
+      letter-spacing: 2px;
+      font-size: 9px;
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 2;
+      padding: 13px 17px;
+      background: #12243a;
+      border: 1px solid #294b70;
+      border-radius: 13px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.3);
+      font-size: 13px;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: #8bcaff;
+      font-size: 12px;
+    }
+
+    .float-one {
+      top: 60px;
+      right: 0;
+    }
+
+    .float-two {
+      bottom: 43px;
+      left: 0;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-12px) rotate(-2deg); }
+    }
+
+    /* BARRA DE VENTAJAS */
+
+    .benefits {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #0b1727;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      padding: 23px 12px;
+      border-right: 1px solid var(--border);
+    }
+
+    .benefit:last-child {
+      border-right: none;
+    }
+
+    .benefit-icon {
+      font-size: 24px;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .benefit small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* SECCIONES */
+
+    section.content-section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 43px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 17px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      letter-spacing: -1.3px;
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* SERVICIOS */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 27px 24px;
+      background: linear-gradient(145deg, #13243a, #0d192a);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(22,133,255,.65);
+    }
+
+    .service-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(22,133,255,.12);
+      border: 1px solid rgba(22,133,255,.22);
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 11px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .text-link {
+      color: #78bdff;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* PROCESO */
+
+    .process {
+      background: #0b1727;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 25px 18px;
+    }
+
+    .step-number {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 19px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #1685ff, #0752bd);
+      box-shadow: 0 0 25px rgba(22,133,255,.2);
+    }
+
+    .step h3 {
+      margin-bottom: 9px;
+      font-size: 17px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTACTO */
+
+    .contact-box {
+      padding: 50px 30px;
+      text-align: center;
+      border: 1px solid rgba(22,133,255,.3);
+      border-radius: 23px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(22,133,255,.2), transparent 65%),
+        #0d1a2c;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      max-width: 570px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .contact-box .btn {
+      margin: 5px;
+    }
+
+    .contact-form {
+      max-width: 550px;
+      margin: 35px auto 0;
+      text-align: left;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 7px;
+      color: #c9d8e9;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px 14px;
+      color: white;
+      background: #07111f;
+      border: 1px solid #2a4059;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .contact-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* PIE DE PÁGINA */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .footer-brand span {
+      color: var(--blue-light);
+    }
+
+    /* BOTÓN FLOTANTE */
+
+    .whatsapp-float {
+      position: fixed;
+      z-index: 90;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #20c875;
+      color: white;
+      font-size: 27px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.35);
+      transition: transform .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* ADAPTACIÓN A CELULARES */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0 55px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .device-area {
+        min-height: 330px;
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .phone {
+        width: 195px;
+        height: 290px;
+      }
+
+      .float-one {
+        right: 3px;
+      }
+
+      .float-two {
+        left: 3px;
+      }
+
+      section.content-section {
+        padding: 65px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 24px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .step {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand {
+        font-size: 20px;
+      }
+
+      .logo {
+        width: 37px;
+        height: 37px;
+      }
+
+      .nav-cta {
+        padding: 9px 11px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .benefit {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+        padding: 18px 5px;
+      }
+
+      .benefit-icon {
+        font-size: 21px;
+      }
+
+      .benefit strong {
+        font-size: 11px;
+      }
+
+      .benefit small {
+        font-size: 10px;
+      }
+
+      .contact-box {
+        padding: 35px 17px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#inicio" class="brand" aria-label="MateFix, inicio">
+        <div class="logo">M</div>
+        <div>Mate<span>Fix</span></div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#contacto" class="nav-cta">Consultar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Servicio técnico de celulares
+          </div>
+
+          <h1>
+            Tu celular,<br>
+            en buenas <span>manos.</span>
+          </h1>
+
+          <p>
+            En MateFix te ayudamos a encontrar una solución
+            para tu celular. Consultá por reparaciones,
+            cambios de módulos y diagnóstico técnico.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary whatsapp-link"
+               href="#contacto"
+               target="_blank"
+               rel="noopener">
+              Consultar por WhatsApp ↗
+            </a>
+
+            <a href="#servicios" class="btn btn-outline">
+              Ver servicios ↓
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Atención personalizada · Presupuestos por consulta
+          </div>
+        </div>
+
+        <div class="device-area">
+          <div class="glow"></div>
+
+          <div class="floating-card float-one">
+            <strong>01 / DIAGNÓSTICO</strong>
+            Revisamos tu equipo
+          </div>
+
+          <div class="phone">
+            <div class="phone-camera"></div>
+            <div class="phone-screen">
+              <div class="phone-symbol">M</div>
+              <strong>MateFix</strong>
+              <small>SERVICIO TÉCNICO</small>
+            </div>
+          </div>
+
+          <div class="floating-card float-two">
+            <strong>02 / SOLUCIÓN</strong>
+            Consultá tu reparación
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="benefits">
+      <div class="container benefits-grid">
+
+        <div class="benefit">
+          <div class="benefit-icon">🔧</div>
+          <div>
+            <strong>Atención personalizada</strong>
+            <small>Evaluamos tu consulta</small>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">📱</div>
+          <div>
+            <strong>Distintos modelos</strong>
+            <small>Consultá por tu equipo</small>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">💬</div>
+          <div>
+            <strong>Contacto directo</strong>
+            <small>Hablá con MateFix</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="content-section" id="servicios">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">Qué hacemos</div>
+          <h2>Soluciones para tu celular</h2>
+          <p>
+            Contanos qué le sucede a tu equipo y te orientamos
+            sobre las opciones de reparación disponibles.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon">📲</div>
+            <h3>Cambio de módulos</h3>
+            <p>
+              ¿Pantalla rota o dañada? Consultá por el módulo
+              compatible con tu modelo y el costo de instalación.
+            </p>
+            <a class="text-link service-link"
+               data-service="Cambio de módulo o pantalla"
+               href="#contacto">
+              Consultar servicio →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Diagnóstico técnico</h3>
+            <p>
+              Si tu celular no enciende, presenta fallas o
+              tiene problemas de funcionamiento, consultá
+              para evaluar qué puede estar pasando.
+            </p>
+            <a class="text-link service-link"
+               data-service="Diagnóstico técnico"
+               href="#contacto">
+              Consultar servicio →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔋</div>
+            <h3>Problemas de carga</h3>
+            <p>
+              ¿No carga correctamente o se desconecta?
+              Consultá para revisar las posibles causas
+              y las alternativas de reparación.
+            </p>
+            <a class="text-link service-link"
+               data-service="Problemas de carga"
+               href="#contacto">
+              Consultar servicio →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section process" id="proceso">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">Simple y directo</div>
+          <h2>¿Cómo trabajamos?</h2>
+          <p>
+            Tres pasos para consultar por la reparación de tu equipo.
+          </p>
+        </div>
+
+        <div class="process-grid">
+
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Contanos el problema</h3>
+            <p>
+              Decinos la marca, el modelo y qué falla presenta tu celular.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Evaluamos las opciones</h3>
+            <p>
+              Consultá por el diagnóstico, los repuestos necesarios
+              y el presupuesto antes de decidir.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Coordinamos la reparación</h3>
+            <p>
+              Si aceptás el presupuesto y el servicio está disponible,
+              coordinamos los siguientes pasos.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+
+          <div class="eyebrow">Hablemos</div>
+          <h2>¿Qué le pasa a tu celular?</h2>
+          <p>
+            Completá los datos y prepararemos un mensaje
+            para que puedas consultarnos por WhatsApp.
+          </p>
+
+          <form class="contact-form" id="contactForm">
+
+            <div>
+              <label for="nombre">Tu nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                placeholder="¿Cómo te llamás?"
+                maxlength="80"
+                autocomplete="name"
+                required>
+            </div>
+
+            <div>
+              <label for="modelo">Marca y modelo del celular</label>
+              <input
+                type="text"
+                id="modelo"
+                placeholder="Ej.: Samsung Galaxy A06"
+                maxlength="100"
+                required>
+            </div>
+
+            <div>
+              <label for="problema">¿Qué problema tiene?</label>
+              <textarea
+                id="problema"
+                placeholder="Ej.: se rompió la pantalla y necesito un presupuesto..."
+                maxlength="1000"
+                required></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              Enviar consulta por WhatsApp ↗
+            </button>
+
+            <small style="color:var(--muted);text-align:center">
+              Se abrirá WhatsApp para que revises y envíes el mensaje.
+            </small>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Mate<span>Fix</span></div>
+        <div>Servicio Técnico · Reparación de celulares</div>
+      </div>
+
+      <div>
+        © <span id="year"></span> MateFix. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-float whatsapp-link"
+    href="#contacto"
+    aria-label="Contactar a MateFix por WhatsApp"
+    target="_blank"
+    rel="noopener">✆</a>
+
+  <script>
+    // Número de WhatsApp de MateFix en formato internacional.
+    // Si no es un número habilitado para WhatsApp, reemplazalo
+    // por el número correcto de la empresa.
+
+    const WHATSAPP = "5492622364099";
+
+    function abrirWhatsApp(mensaje) {
+      const url =
+        "https://wa.me/" + WHATSAPP +
+        "?text=" + encodeURIComponent(mensaje);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Botones generales de contacto
+    document.querySelectorAll(".whatsapp-link").forEach(boton => {
+      boton.addEventListener("click", function(event) {
+        event.preventDefault();
+        abrirWhatsApp(
+          "Hola MateFix, quisiera consultar por una reparación de celular."
+        );
+      });
+    });
+
+    // Botones de cada servicio
+    document.querySelectorAll(".service-link").forEach(boton => {
+      boton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const servicio = this.dataset.service;
+
+        abrirWhatsApp(
+          "Hola MateFix. Quisiera consultar por el servicio: " +
+          servicio + ". ¿Me pueden orientar?"
+        );
+      });
+    });
+
+    // Formulario de presupuesto
+    document.getElementById("contactForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const modelo = document.getElementById("modelo").value.trim();
+        const problema = document.getElementById("problema").value.trim();
+
+        if (!nombre || !modelo || !problema) {
+          alert("Completá todos los campos para continuar.");
+          return;
+        }
+
+        const mensaje =
+          "Hola MateFix, quiero consultar por una reparación.\n\n" +
+          "Nombre: " + nombre + "\n" +
+          "Celular: " + modelo + "\n" +
+          "Problema: " + problema + "\n\n" +
+          "Quisiera saber si pueden ayudarme y solicitar un presupuesto.";
+
+        abrirWhatsApp(mensaje);
+      });
+
+    // Año automático en el pie de página
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
